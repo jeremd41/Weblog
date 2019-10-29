@@ -1,2 +1,0 @@
-# Weblog
-Created with CodeSandbox
