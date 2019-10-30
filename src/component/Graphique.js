@@ -14,8 +14,10 @@ const Wrapper = styled.div`
 class Graphique extends Component {
   state = {
     options: {
+      /* Couleur des barres graphiques*/
       colors: ["#F44336"],
       chart: {
+        /* Type de graphique */
         id: "basic-bar"
       },
       xaxis: {

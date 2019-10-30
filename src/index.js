@@ -19,6 +19,7 @@ import Expedition from "./page/Expedition";
 import Client from "./page/Client";
 import Fournisseur from "./page/Fournisseur";
 import TempCdeA from "./component/TempCdeA";
+import TempCdeC from "./component/TempCdeC";
 
 const store = createStore(rootReducer);
 
@@ -28,7 +29,7 @@ function Index() {
       <Layout>
         <div className="App">
           <Route exact path="/" component={App} />
-          <Route path="/cdeclient" component={cdeClient} />
+          <Route exact path="/cdeclient" component={cdeClient} />
           <Route exact path="/cdeappro" component={cdeAppro} />
           <Route path="/stock" component={Stock} />
           <Route path="/preparation" component={Preparation} />
@@ -37,6 +38,7 @@ function Index() {
           <Route path="/client" component={Client} />
           <Route path="/Fournisseur" component={Fournisseur} />
           <Route path="/cdeappro/:cde_nCde" component={TempCdeA} />
+          <Route path="/cdeclient/:cde_nCde" component={TempCdeC} />
         </div>
       </Layout>
     </Router>

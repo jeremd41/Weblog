@@ -1,9 +1,16 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { connect } from "react-redux";
 
 const Wrapper = styled.div`
    {
     margin-top: 30px;
+
+    .cellPreview:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
   }
 `;
 
@@ -17,36 +24,47 @@ const Title = styled.h2`
 
 class cdeClient extends Component {
   render() {
+    const { cdeC } = this.props;
     return (
       <Wrapper>
         <Title>Weblog - Commande Client</Title>
-        <div class="divTable redTable">
-          <div class="divTableHeading">
-            <div class="divTableRow">
-              <div class="divTableHead">Action</div>
-              <div class="divTableHead">N°Cde</div>
-              <div class="divTableHead">Client</div>
-              <div class="divTableHead">Nb Pal</div>
-              <div class="divTableHead">Destinataire</div>
-              <div class="divTableHead">Date commande</div>
-              <div class="divTableHead">Date Livraison</div>
+        <div className="divTable redTable">
+          <div className="divTableHeading">
+            <div className="divTableRow">
+              <div className="divTableHead">Action</div>
+              <div className="divTableHead">N°Cde</div>
+              <div className="divTableHead">Client</div>
+              <div className="divTableHead">Observation</div>
+              <div className="divTableHead">Date Cde</div>
+              <div className="divTableHead">Date Livraison</div>
             </div>
           </div>
-          <div class="divTableBody">
-            <div class="divTableRow">
-              <div class="divTableCell">cell1_1</div>
-              <div class="divTableCell">cell2_1</div>
-              <div class="divTableCell">cell3_1</div>
-              <div class="divTableCell">cell4_1</div>
-              <div class="divTableCell">cell5_1</div>
-              <div class="divTableCell">cell6_1</div>
-              <div class="divTableCell">cell6_1</div>
-            </div>
-          </div>
+          {cdeC.map(cde => {
+            return (
+              <div className="divTableBody" key={cde.nCde}>
+                <div className="divTableRow">
+                  <div className="divTableCell cellPreview">
+                    <Link to={"/cdeclient/" + cde.nCde}>Aperçu</Link>
+                  </div>
+                  <div className="divTableCell">{cde.nCde}</div>
+                  <div className="divTableCell">{cde.client}</div>
+                  <div className="divTableCell">{cde.observation}</div>
+                  <div className="divTableCell">{cde.dateCde}</div>
+                  <div className="divTableCell">{cde.dateLiv}</div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </Wrapper>
     );
   }
 }
 
-export default cdeClient;
+const mapStatetoProps = state => {
+  return {
+    cdeC: state.cdeC
+  };
+};
+
+export default connect(mapStatetoProps)(cdeClient);

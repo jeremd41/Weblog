@@ -7,19 +7,13 @@ const Wrapper = styled.div`
    {
     margin-top: 20px;
     color: #fff;
+    background: #8f8887;
 
     .backPages {
       font-size: 12px;
       margin-left: 50px;
       cursor: pointer;
       color: #fff;
-      :hover {
-        text-decoration: underline;
-      }
-    }
-
-    .commande {
-      background: #8f8887;
     }
   }
 `;
@@ -32,7 +26,7 @@ const Title = styled.h2`
   }
 `;
 
-class TempCdeA extends Component {
+class TempCdeC extends Component {
   render() {
     console.log(this.props);
     const details = this.props.commande.reference;
@@ -49,11 +43,11 @@ class TempCdeA extends Component {
     );
     return (
       <Wrapper>
-        <Link to="/cdeappro" className="backPages">
-          {"<  Retour"}
+        <Link to="/cdeclient" className="backPages">
+          Retour
         </Link>
-        <Title>Fiche Commande Appro N°{this.props.commande.nCde}</Title>
-        <div className="commande">{cde}</div>
+        <Title>Fiche Commande Client N°{this.props.commande.nCde}</Title>
+        <div>{cde}</div>
       </Wrapper>
     );
   }
@@ -62,8 +56,8 @@ class TempCdeA extends Component {
 const mapStateToProps = (state, ownProps) => {
   let id = ownProps.match.params.cde_nCde;
   return {
-    commande: state.cdeA.find(post => post.nCde === id)
+    commande: state.cdeC.find(post => post.nCde === id)
   };
 };
 
-export default connect(mapStateToProps)(TempCdeA);
+export default connect(mapStateToProps)(TempCdeC);
