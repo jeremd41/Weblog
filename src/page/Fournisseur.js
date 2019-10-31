@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { connect } from "react-redux";
 
 const Wrapper = styled.div`
    {
@@ -17,6 +19,7 @@ const Title = styled.h2`
 
 class Fournisseur extends Component {
   render() {
+    const { fournisseur } = this.props;
     return (
       <Wrapper>
         <Title>Weblog - Contact Fournisseur</Title>
@@ -33,22 +36,32 @@ class Fournisseur extends Component {
               <div class="divTableHead">E-mail</div>
             </div>
           </div>
-          <div class="divTableBody">
-            <div class="divTableRow">
-              <div class="divTableCell">cell1_1</div>
-              <div class="divTableCell">cell2_1</div>
-              <div class="divTableCell">cell3_1</div>
-              <div class="divTableCell">cell4_1</div>
-              <div class="divTableCell">cell5_1</div>
-              <div class="divTableCell">cell6_1</div>
-              <div class="divTableCell">cell6_1</div>
-              <div class="divTableCell">cell6_1</div>
-            </div>
-          </div>
+          {fournisseur.map(ligne => {
+            return (
+              <div class="divTableBody" key={ligne.id}>
+                <div class="divTableRow">
+                  <div class="divTableCell">Voir</div>
+                  <div class="divTableCell">{ligne.societe}</div>
+                  <div class="divTableCell">{ligne.nom}</div>
+                  <div class="divTableCell">{ligne.prenom}</div>
+                  <div class="divTableCell">{ligne.fonction}</div>
+                  <div class="divTableCell">{ligne.telephone}</div>
+                  <div class="divTableCell">{ligne.mobile}</div>
+                  <div class="divTableCell">{ligne.email}</div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </Wrapper>
     );
   }
 }
 
-export default Fournisseur;
+const mapStatetoProps = state => {
+  return {
+    fournisseur: state.fournisseur
+  };
+};
+
+export default connect(mapStatetoProps)(Fournisseur);

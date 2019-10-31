@@ -1,7 +1,7 @@
 const initState = {
   cdeA: [
     {
-      nCde: "141596",
+      nCde: 141596,
       fournisseur: "la banane joyeuse",
       reference: [
         {
@@ -88,8 +88,90 @@ const initState = {
       observation: "Commande regulière"
     }
   ],
-  client: [],
-  fournisseur: []
+  client: [
+    {
+      id: 1,
+      societe: "Hyper Market",
+      nom: "Servaes",
+      prenom: "Jean-luc",
+      fonction: "Approvisionneur",
+      telephone: "01 07 04 04 02",
+      mobile: "06 07 04 04 02",
+      email: "jean-luc@market.com"
+    },
+    {
+      id: 2,
+      societe: "Hyper Market",
+      nom: "De sousa",
+      prenom: "Louis",
+      fonction: "Directeur de site",
+      telephone: "01 07 77 04 02",
+      mobile: "06 07 04 77 02",
+      email: "louis@market.com"
+    },
+    {
+      id: 3,
+      societe: "Resto plateforme",
+      nom: "Etchebest",
+      prenom: "Bruno",
+      fonction: "Responsable Approvisionnement",
+      telephone: "01 07 77 04 02",
+      mobile: "06 07 04 77 02",
+      email: "etchebest@platresto.com"
+    },
+    {
+      id: 4,
+      societe: "Resto plateforme",
+      nom: "Lignac",
+      prenom: "Patrick",
+      fonction: "PDG",
+      telephone: "01 07 77 04 02",
+      mobile: "06 07 04 77 02",
+      email: "lignac@platresto.com"
+    }
+  ],
+  fournisseur: [
+    {
+      id: 1,
+      societe: "la banane joyeuse ",
+      nom: " Banane",
+      prenom: " Bertrand",
+      fonction: "PDG",
+      telephone: "01 07 04 04 02",
+      mobile: "06 07 04 04 02",
+      email: "bb@banane.com"
+    },
+    {
+      id: 2,
+      societe: "la banane joyeuse ",
+      nom: " Rey",
+      prenom: " Jean",
+      fonction: "Responsable logistique",
+      telephone: "01 07 04 04 02",
+      mobile: "06 07 04 04 02",
+      email: "rj@banane.com"
+    },
+    {
+      id: 3,
+      societe: "Le primeur d’autrefois ",
+      nom: "Robert",
+      prenom: " Loïc",
+      fonction: "Responsable de site",
+      telephone: "01 07 66 66 02",
+      mobile: "06 07 66 66 02",
+      email: "r.loic@autrefois.com"
+    },
+    {
+      id: 4,
+      societe: "Le primeur d’autrefois ",
+      nom: "Philippe",
+      prenom: " François",
+      fonction: "Responsable Stock",
+      telephone: "01 07 77 66 02",
+      mobile: "06 07 66 77 02",
+      email: "p.francois@autrefois.com"
+    }
+  ]
 };
 
 const rootReducer = (state = initState, action) => {
