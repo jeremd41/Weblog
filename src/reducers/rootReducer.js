@@ -132,7 +132,7 @@ const initState = {
   ],
   fournisseur: [
     {
-      id: 1,
+      id: "1",
       societe: "la banane joyeuse ",
       nom: " Banane",
       prenom: " Bertrand",
@@ -142,7 +142,7 @@ const initState = {
       email: "bb@banane.com"
     },
     {
-      id: 2,
+      id: "2",
       societe: "la banane joyeuse ",
       nom: " Rey",
       prenom: " Jean",
@@ -152,7 +152,7 @@ const initState = {
       email: "rj@banane.com"
     },
     {
-      id: 3,
+      id: "3",
       societe: "Le primeur d’autrefois ",
       nom: "Robert",
       prenom: " Loïc",
@@ -162,7 +162,7 @@ const initState = {
       email: "r.loic@autrefois.com"
     },
     {
-      id: 4,
+      id: "4",
       societe: "Le primeur d’autrefois ",
       nom: "Philippe",
       prenom: " François",

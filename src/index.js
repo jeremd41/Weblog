@@ -20,6 +20,7 @@ import Client from "./page/Client";
 import Fournisseur from "./page/Fournisseur";
 import TempCdeA from "./component/TempCdeA";
 import TempCdeC from "./component/TempCdeC";
+import TempFournisseur from "./component/TempFournisseur";
 
 const store = createStore(rootReducer);
 
@@ -35,10 +36,14 @@ function Index() {
           <Route path="/preparation" component={Preparation} />
           <Route path="/reception" component={Reception} />
           <Route path="/expedition" component={Expedition} />
-          <Route path="/client" component={Client} />
-          <Route path="/Fournisseur" component={Fournisseur} />
+          <Route exact path="/client" component={Client} />
+          <Route exact path="/Fournisseur" component={Fournisseur} />
           <Route path="/cdeappro/:cde_nCde" component={TempCdeA} />
           <Route path="/cdeclient/:cde_nCde" component={TempCdeC} />
+          <Route
+            path="/fournisseur/:fournisseur_id"
+            component={TempFournisseur}
+          />
         </div>
       </Layout>
     </Router>
