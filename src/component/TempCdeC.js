@@ -24,6 +24,12 @@ const Wrapper = styled.div`
     label {
       margin: 5px;
       margin-left: 50px;
+      width: 30%;
+    }
+
+    input {
+      float: right;
+      background: #827b7a;
     }
 
     .flexbox {
@@ -101,11 +107,15 @@ class TempCdeA extends Component {
             <input type="text" readonly value={this.props.commande.dateLiv} />
           </label>
           <label>
-            Fournisseur :
+            Client :
+            <input type="text" readonly value={this.props.commande.client} />
+          </label>
+          <label>
+            Observation :
             <input
               type="text"
               readonly
-              value={this.props.commande.fournisseur}
+              value={this.props.commande.observation}
             />
           </label>
         </div>
@@ -113,10 +123,6 @@ class TempCdeA extends Component {
           <h3 className="detailtableau">Détails commande : </h3>
           {cde}
         </div>
-        <label>
-          Observation :
-          <input type="text" readonly value={this.props.commande.observation} />
-        </label>
       </Wrapper>
     );
   }

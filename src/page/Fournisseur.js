@@ -40,7 +40,7 @@ class Fournisseur extends Component {
             return (
               <div class="divTableBody" key={ligne.id}>
                 <div class="divTableRow">
-                  <div class="divTableCell">
+                  <div class="divTableCell cellPreview">
                     <Link to={"/fournisseur/" + ligne.id}>Voir</Link>
                   </div>
                   <div class="divTableCell">{ligne.societe}</div>

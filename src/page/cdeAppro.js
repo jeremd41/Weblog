@@ -6,11 +6,6 @@ import { connect } from "react-redux";
 const Wrapper = styled.div`
    {
     margin-top: 30px;
-
-    .cellPreview:hover {
-      text-decoration: underline;
-      cursor: pointer;
-    }
   }
 `;
 

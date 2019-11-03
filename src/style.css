@@ -2,6 +2,8 @@ body {
   margin: 0;
   padding: 0;
   background: #111;
+  height: 100vh;
+  width: 180vh;
 }
 
 a {
@@ -11,6 +13,18 @@ a {
 
 h4 {
   color: #fff;
+}
+
+input {
+  border: none;
+  height: 23px;
+  padding: 0px 3px;
+}
+
+select {
+  border: none;
+  height: 23px;
+  padding: 0px 3px;
 }
 
 /* ------TABELEAU COMMANDE APPRO ------*/
@@ -93,4 +107,9 @@ div.redTable {
 
 .divTableBody:hover {
   background: #8f8887;
+}
+
+.cellPreview:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }

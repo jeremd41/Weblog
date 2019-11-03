@@ -41,7 +41,7 @@ class Client extends Component {
             return (
               <div class="divTableBody" key={ligne.id}>
                 <div class="divTableRow">
-                  <div class="divTableCell">
+                  <div class="divTableCell cellPreview">
                     <Link to={"/client/" + ligne.id}>Voir</Link>
                   </div>
                   <div class="divTableCell">{ligne.societe}</div>
