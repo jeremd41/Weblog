@@ -20,6 +20,25 @@ const Wrapper = styled.div`
         text-decoration: underline;
       }
     }
+
+    .barreTache {
+      height: 50px;
+      background: #aaaaaa;
+      width: 90%;
+      margin: 25px 50px;
+      border: 1px solid #a40808;
+    }
+
+    .btnModal {
+      margin-left: 25px;
+      margin-top: 12px;
+      height: 25px;
+      border: 1px solid #8f8887;
+
+      :hover {
+        background: #8f8887;
+      }
+    }
   }
 `;
 
@@ -49,43 +68,53 @@ const Fiche = styled.div`
 `;
 
 class TempClient extends Component {
+  state = {
+    societe: this.props.client.societe,
+    nom: this.props.client.nom,
+    prenom: this.props.client.prenom,
+    fonction: this.props.client.fonction,
+    telephone: this.props.client.telephone,
+    mobile: this.props.client.mobile,
+    email: this.props.client.email
+  };
+
   render() {
-    console.log(this.props);
     const cli = this.props.client ? (
       <Fiche>
         <label>
-          Société: <input type="text" value={this.props.client.societe} />
+          Société: <input type="text" value={this.state.societe} />
         </label>
         <label>
-          Nom: <input type="text" value={this.props.client.nom} />
+          Nom: <input type="text" value={this.state.nom} />
         </label>
         <label>
-          Prenom: <input type="text" value={this.props.client.prenom} />
+          Prenom: <input type="text" value={this.state.prenom} />
         </label>
         <label>
           Fonction:
-          <input type="text" value={this.props.client.fonction} />
+          <input type="text" value={this.state.fonction} />
         </label>
         <label>
           Téléphone:
-          <input type="text" value={this.props.client.telephone} />
+          <input type="text" value={this.state.telephone} />
         </label>
         <label>
           Mobile:
-          <input type="text" value={this.props.client.mobile} />
+          <input type="text" value={this.state.mobile} />
         </label>
         <label>
           E-mail:
-          <input type="text" value={this.props.client.email} />
+          <input type="text" value={this.state.email} />
         </label>
       </Fiche>
     ) : (
-      <Wrapper>
-        <span>Ce client existe pas ...</span>
-      </Wrapper>
+      <span>Ce client existe pas ...</span>
     );
     return (
       <Wrapper>
+        <div className="barreTache">
+          <button className="btnModal">Créer client</button>
+        </div>
         <Link to="/client" className="backPages">
           {"<  Retour"}
         </Link>

@@ -1,3 +1,5 @@
+import ADD_CLIENT from "./actionType";
+
 const initState = {
   cdeA: [
     {
@@ -175,7 +177,20 @@ const initState = {
 };
 
 const rootReducer = (state = initState, action) => {
-  return state;
+  switch (action.type) {
+    case "ADD_CLIENT":
+      return { ...state, client: [...state.client, action] };
+
+    case "ADD_FOURNISSEUR":
+      return { ...state, fournisseur: [...state.fournisseur, action] };
+
+    default:
+      return state;
+  }
+
+  /*if (action.type === "ADD_CLIENT") {
+    return { ...state, client: [...state.client, action] };
+  }*/
 };
 
 export default rootReducer;

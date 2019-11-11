@@ -50,7 +50,6 @@ const Fiche = styled.div`
 
 class TempFournisseur extends Component {
   render() {
-    console.log(this.props);
     const frs = this.props.fournisseur ? (
       <Fiche>
         <label>
@@ -99,7 +98,7 @@ class TempFournisseur extends Component {
 const mapStateToProps = (state, ownProps) => {
   let id = ownProps.match.params.fournisseur_id;
   return {
-    fournisseur: state.fournisseur.find(post => post.id === id)
+    fournisseur: state.fournisseur.find(post => post.id == id)
   };
 };
 

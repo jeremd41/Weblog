@@ -19,7 +19,7 @@ const Nav = styled.ul`
     display: flex;
     width: 180px;
     flex-direction: column;
-    background: #c8291e;
+    background: #a40808;
     border-radius: 5px;
 
     li:hover {
