@@ -184,7 +184,62 @@ const rootReducer = (state = initState, action) => {
     case "ADD_FOURNISSEUR":
       return { ...state, fournisseur: [...state.fournisseur, action] };
 
+    case "DELETE_CLIENT":
+      return {
+        ...state,
+        client: state.client.filter(item => {
+          return action.id !== item.id;
+        })
+      };
+
+    case "DELETE_FOURNISSEUR":
+      return {
+        ...state,
+        fournisseur: state.fournisseur.filter(item => {
+          return action.id !== item.id;
+        })
+      };
+
+    case "UPDATE_CLIENT":
+      return {
+        ...state,
+        client: state.client.map(item => {
+          return item.id === action.id
+            ? {
+                id: action.id,
+                societe: action.societe,
+                nom: action.nom,
+                prenom: action.prenom,
+                fonction: action.fonction,
+                telephone: action.telephone,
+                mobile: action.mobile,
+                email: action.email
+              }
+            : item;
+        })
+      };
+
+    case "UPDATE_FOURNISSEUR":
+      return {
+        ...state,
+        fournisseur: state.fournisseur.map(item => {
+          return item.id === action.id
+            ? {
+                id: action.id,
+                societe: action.societe,
+                nom: action.nom,
+                prenom: action.prenom,
+                fonction: action.fonction,
+                telephone: action.telephone,
+                mobile: action.mobile,
+                email: action.email
+              }
+            : item;
+        })
+      };
+
     default:
+      console.log(action.id);
       return state;
   }
 

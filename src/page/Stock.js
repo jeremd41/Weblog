@@ -50,7 +50,7 @@ class Stock extends Component {
   render() {
     return (
       <div>
-        <Title>Web-log - Consulation Stock</Title>
+        <Title>Web-log - Consultation Stock</Title>
         <Cadre>
           <form>
             <label>

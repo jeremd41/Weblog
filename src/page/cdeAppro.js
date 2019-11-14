@@ -6,6 +6,26 @@ import { connect } from "react-redux";
 const Wrapper = styled.div`
    {
     margin-top: 30px;
+
+    .barreTache {
+      height: 50px;
+      background: #aaaaaa;
+      width: 90%;
+      margin: 25px 50px;
+      border: 1px solid #a40808;
+    }
+
+    .btnModal {
+      margin-left: 25px;
+      margin-top: 12px;
+      height: 25px;
+      border: 1px solid #8f8887;
+      width: 10%;
+
+      :hover {
+        background: #8f8887;
+      }
+    }
   }
 `;
 
@@ -23,6 +43,11 @@ class cdeAppro extends Component {
     return (
       <Wrapper>
         <Title>Weblog - Commande Appro</Title>
+        <div className="barreTache">
+          <button className="btnModal" onClick={this.handleClick}>
+            Créer client
+          </button>
+        </div>
         <div className="divTable redTable">
           <div className="divTableHeading">
             <div className="divTableRow">

@@ -35,6 +35,7 @@ const Wrapper = styled.div`
       margin-top: 12px;
       height: 25px;
       border: 1px solid #8f8887;
+      width: 12%;
 
       :hover {
         background: #8f8887;
@@ -47,7 +48,6 @@ const Title = styled.h2`
    {
     color: #fff;
     margin-left: 50px;
-    margin-top: 20px;
   }
 `;
 
