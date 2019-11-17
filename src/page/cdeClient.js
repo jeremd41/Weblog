@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { connect } from "react-redux";
+import AddCdeC from "../component/AddCdeC";
 
 const Wrapper = styled.div`
    {
@@ -43,14 +44,30 @@ const Title = styled.h2`
 `;
 
 class cdeClient extends Component {
+  state = {
+    modalVisible: false
+  };
+
+  handleClick = () => {
+    this.setState({
+      modalVisible: !this.state.modalVisible
+    });
+  };
+
   render() {
+    let modal;
+
+    if (this.state.modalVisible) {
+      modal = <AddCdeC cache={this.handleClick} />;
+    }
+
     const { cdeC } = this.props;
     return (
       <Wrapper>
         <Title>Weblog - Commande Client</Title>
         <div className="barreTache">
           <button className="btnModal" onClick={this.handleClick}>
-            Créer client
+            Créer CDE
           </button>
         </div>
         <div className="divTable redTable">
@@ -81,6 +98,7 @@ class cdeClient extends Component {
             );
           })}
         </div>
+        {modal}
       </Wrapper>
     );
   }

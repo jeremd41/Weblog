@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { connect } from "react-redux";
+import AddCdeA from "../component/AddCdeA";
 
 const Wrapper = styled.div`
    {
@@ -38,14 +39,30 @@ const Title = styled.h2`
 `;
 
 class cdeAppro extends Component {
+  state = {
+    modalVisible: false
+  };
+
+  handleClick = () => {
+    this.setState({
+      modalVisible: !this.state.modalVisible
+    });
+  };
+
   render() {
+    let modal;
+
+    if (this.state.modalVisible) {
+      modal = <AddCdeA cache={this.handleClick} />;
+    }
+
     const { cdeA } = this.props;
     return (
       <Wrapper>
         <Title>Weblog - Commande Appro</Title>
         <div className="barreTache">
           <button className="btnModal" onClick={this.handleClick}>
-            Créer client
+            Créer CDE
           </button>
         </div>
         <div className="divTable redTable">
@@ -76,6 +93,7 @@ class cdeAppro extends Component {
             );
           })}
         </div>
+        {modal}
       </Wrapper>
     );
   }

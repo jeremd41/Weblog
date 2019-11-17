@@ -65,7 +65,6 @@ class TempCdeA extends Component {
       <div className="divTable redTable">
         <div className="divTableHeading">
           <div className="divTableRow">
-            <div className="divTableHead">Ligne</div>
             <div className="divTableHead">Reference</div>
             <div className="divTableHead">Dénomination</div>
             <div className="divTableHead">Qté</div>
@@ -76,7 +75,6 @@ class TempCdeA extends Component {
           return (
             <div className="divTableBody" key={ligne.id}>
               <div className="divTableRow">
-                <div className="divTableCell">{ligne.id}</div>
                 <div className="divTableCell">{ligne.ref}</div>
                 <div className="divTableCell">{ligne.denomination}</div>
                 <div className="divTableCell">{ligne.qte}</div>
@@ -100,23 +98,18 @@ class TempCdeA extends Component {
         <div className="flexbox">
           <label>
             Date commande :
-            <input type="text" readonly value={this.props.commande.dateCde} />
+            <input type="text" value={this.props.commande.dateCde} />
           </label>
           <label>
-            Date Liv :{" "}
-            <input type="text" readonly value={this.props.commande.dateLiv} />
+            Date Liv : <input type="text" value={this.props.commande.dateLiv} />
           </label>
           <label>
             Client :
-            <input type="text" readonly value={this.props.commande.client} />
+            <input type="text" value={this.props.commande.client} />
           </label>
           <label>
             Observation :
-            <input
-              type="text"
-              readonly
-              value={this.props.commande.observation}
-            />
+            <input type="text" value={this.props.commande.observation} />
           </label>
         </div>
         <div className="commande">

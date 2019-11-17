@@ -238,8 +238,43 @@ const rootReducer = (state = initState, action) => {
         })
       };
 
+    case "ADD_CDEA":
+      return {
+        ...state,
+        cdeA: [
+          ...state.cdeA,
+          {
+            nCde:
+              state.cdeA.reduce((maxId, cde) => Math.max(cde.nCde, maxId), -1) +
+              1,
+            fournisseur: action.fournisseur,
+            reference: action.reference,
+            dateCde: action.dateCde,
+            dateLiv: action.dateLiv,
+            observation: action.observation
+          }
+        ]
+      };
+
+    case "ADD_CDEC":
+      return {
+        ...state,
+        cdeC: [
+          ...state.cdeC,
+          {
+            nCde:
+              state.cdeA.reduce((maxId, cde) => Math.max(cde.nCde, maxId), -1) +
+              1,
+            client: action.client,
+            reference: action.reference,
+            dateCde: action.dateCde,
+            dateLiv: action.dateLiv,
+            observation: action.observation
+          }
+        ]
+      };
+
     default:
-      console.log(action.id);
       return state;
   }
 
