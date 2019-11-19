@@ -118,7 +118,7 @@ class AddCdeA extends Component {
     fournisseur: "",
     reference: [],
     dateCde:
-      auj.getDate() + "/" + (auj.getMonth() + 1) + "/" + auj.getFullYear(),
+      auj.getFullYear() + "-" + (auj.getMonth() + 1) + "-" + auj.getDate(),
     dateLiv: "",
     observation: "",
 
@@ -240,6 +240,7 @@ class AddCdeA extends Component {
               <label>
                 Date livraison:
                 <input
+                  type="date"
                   name="dateLiv"
                   value={this.state.dateLiv}
                   onChange={this.handleChange}

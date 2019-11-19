@@ -21,8 +21,8 @@ const initState = {
           unité: "pal"
         }
       ],
-      dateCde: "17/10/2019",
-      dateLiv: "27/10/2019",
+      dateCde: "2019-10-17",
+      dateLiv: "2019-10-27",
       observation: ""
     },
     {
@@ -44,8 +44,8 @@ const initState = {
           unité: "pal"
         }
       ],
-      dateCde: "19/10/2019",
-      dateLiv: "22/10/2019",
+      dateCde: "2019-10-20",
+      dateLiv: "2019-10-22",
       observation: "Urgent rupture"
     }
   ],
@@ -69,8 +69,8 @@ const initState = {
           unité: "pal"
         }
       ],
-      dateCde: "28/10/2019",
-      dateLiv: "31/10/2019",
+      dateCde: "2019-10-31",
+      dateLiv: "2019-11-10",
       observation: "Livraison avant 12h"
     },
     {
@@ -85,8 +85,8 @@ const initState = {
           unité: "pal"
         }
       ],
-      dateCde: "25/10/2019",
-      dateLiv: "31/10/2019",
+      dateCde: "2019-10-25",
+      dateLiv: "2019-10-31",
       observation: "Commande regulière"
     }
   ],
@@ -263,7 +263,7 @@ const rootReducer = (state = initState, action) => {
           ...state.cdeC,
           {
             nCde:
-              state.cdeA.reduce((maxId, cde) => Math.max(cde.nCde, maxId), -1) +
+              state.cdeC.reduce((maxId, cde) => Math.max(cde.nCde, maxId), -1) +
               1,
             client: action.client,
             reference: action.reference,
@@ -274,7 +274,58 @@ const rootReducer = (state = initState, action) => {
         ]
       };
 
+    case "UPDATE_CDEA":
+      return {
+        ...state,
+        cdeA: state.cdeA.map(item => {
+          return item.nCde === action.nCde
+            ? {
+                nCde: action.nCde,
+                client: action.client,
+                reference: action.reference,
+                dateCde: action.dateCde,
+                dateLiv: action.dateLiv,
+                observation: action.observation
+              }
+            : item;
+        })
+      };
+
+    case "UPDATE_CDEC":
+      return {
+        ...state,
+        cdeC: state.cdeC.map(item => {
+          return item.nCde === action.nCde
+            ? {
+                nCde: action.nCde,
+                client: action.client,
+                reference: action.reference,
+                dateCde: action.dateCde,
+                dateLiv: action.dateLiv,
+                observation: action.observation
+              }
+            : item;
+        })
+      };
+
+    case "DELETE_CDEA":
+      return {
+        ...state,
+        cdeA: state.cdeA.filter(item => {
+          return action.nCde !== item.nCde;
+        })
+      };
+
+    case "DELETE_CDEC":
+      return {
+        ...state,
+        cdeC: state.cdeC.filter(item => {
+          return action.nCde !== item.nCde;
+        })
+      };
+
     default:
+      console.log(action);
       return state;
   }
 
