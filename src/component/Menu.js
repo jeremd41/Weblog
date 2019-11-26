@@ -8,6 +8,11 @@ const Wrapper = styled.div`
     height: 100%;
     position: absolute;
     top: 0;
+
+    p {
+      color: #fff;
+      margin-left: 5px;
+    }
   }
 `;
 
@@ -65,7 +70,7 @@ class Menu extends Component {
         <Title>
           <Link to="/">Web-log</Link>
         </Title>
-        <Search type="search" placeholder="Recherche cde...        🔎" />
+        <Search type="search" placeholder="Recherche cde...       🔎 " />
         <Nav>
           <li>
             <Link to="/">Dashboard</Link>
@@ -95,6 +100,7 @@ class Menu extends Component {
             <Link to="/client">Client</Link>
           </li>
         </Nav>
+        <p>Copyright Webizy</p>
       </Wrapper>
     );
   }

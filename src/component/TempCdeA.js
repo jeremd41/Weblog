@@ -116,7 +116,7 @@ class TempCdeA extends Component {
 
     this.props.updateCdeA(
       this.state.nCde,
-      this.state.client,
+      this.state.fournisseur,
       this.state.reference,
       this.state.dateCde,
       this.state.dateLiv,

@@ -23,6 +23,8 @@ import TempCdeC from "./component/TempCdeC";
 import TempFournisseur from "./component/TempFournisseur";
 import Page404 from "./page/404";
 import TempClient from "./component/TempClient";
+import Controle from "./component/Controle";
+import addRef from "./component/addRef";
 
 const store = createStore(rootReducer);
 
@@ -43,6 +45,8 @@ function Index() {
             <Route exact path="/Fournisseur" component={Fournisseur} />
             <Route path="/cdeappro/:cde_nCde" component={TempCdeA} />
             <Route path="/cdeclient/:cde_nCde" component={TempCdeC} />
+            <Route exact path="/controle/:commande" component={Controle} />
+            <Route exact path="/controle/:commande/:ref" component={addRef} />
             <Route
               path="/fournisseur/:fournisseur_id"
               component={TempFournisseur}

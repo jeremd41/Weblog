@@ -1,5 +1,3 @@
-import ADD_CLIENT from "./actionType";
-
 const initState = {
   cdeA: [
     {
@@ -173,7 +171,39 @@ const initState = {
       mobile: "06 07 66 77 02",
       email: "p.francois@autrefois.com"
     }
-  ]
+  ],
+  emplacement: [
+    "A11",
+    "A12",
+    "A13",
+    "A21",
+    "A22",
+    "A23",
+    "A31",
+    "A32",
+    "A33",
+    "B11",
+    "B12",
+    "B13",
+    "B21",
+    "B22",
+    "B23",
+    "B31",
+    "B32",
+    "B33"
+  ],
+  stock: [
+    {
+      id: "1",
+      ref: "1010101010",
+      denomination: "Banane eco",
+      qte: "2",
+      unite: "pal",
+      emplacement: "A33"
+    }
+  ],
+
+  cache: []
 };
 
 const rootReducer = (state = initState, action) => {
@@ -281,7 +311,7 @@ const rootReducer = (state = initState, action) => {
           return item.nCde === action.nCde
             ? {
                 nCde: action.nCde,
-                client: action.client,
+                fournisseur: action.fournisseur,
                 reference: action.reference,
                 dateCde: action.dateCde,
                 dateLiv: action.dateLiv,
@@ -324,14 +354,55 @@ const rootReducer = (state = initState, action) => {
         })
       };
 
+    case "ADD_RECEPT":
+      return {
+        ...state,
+        stock: [
+          ...state.stock,
+          {
+            id:
+              state.stock.reduce(
+                (maxId, item) => Math.max(item.id, maxId),
+                -1
+              ) + 1,
+            ref: action.ref,
+            denomination: action.denomination,
+            qte: action.qte,
+            unite: action.unite,
+            emplacement: action.emplacement
+          }
+        ]
+      };
+
+    case "UPDATE_RECEPT":
+      return {
+        ...state,
+        cdeA: state.cdeA.map(item => {
+          return item.nCde === action.nCde
+            ? {
+                nCde: item.nCde,
+                dateCde: item.dateCde,
+                dateLiv: item.dateLiv,
+                reference: item.reference.map(ligne => {
+                  return ligne.id === action.id
+                    ? {
+                        id: ligne.id,
+                        ref: ligne.ref,
+                        denomination: ligne.denomination,
+                        qte: ligne.qte - action.qte,
+                        unité: ligne.unité
+                      }
+                    : ligne;
+                }),
+                observation: item.observation
+              }
+            : item;
+        })
+      };
+
     default:
-      console.log(action);
       return state;
   }
-
-  /*if (action.type === "ADD_CLIENT") {
-    return { ...state, client: [...state.client, action] };
-  }*/
 };
 
 export default rootReducer;
