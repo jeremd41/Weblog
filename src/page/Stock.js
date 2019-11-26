@@ -123,7 +123,6 @@ class Stock extends Component {
                 value={this.state.emplacement}
               />
             </label>
-            <Recherche type="submit">Rechercher</Recherche>
           </form>
         </Cadre>
         <div className="divTable redTable">
