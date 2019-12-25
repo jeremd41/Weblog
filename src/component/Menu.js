@@ -25,11 +25,9 @@ const Nav = styled.ul`
     width: 180px;
     flex-direction: column;
     background: #a40808;
-    border-radius: 5px;
 
     li:hover {
       background: #b65d56;
-      border-radius: 5px;
     }
 
     li a {

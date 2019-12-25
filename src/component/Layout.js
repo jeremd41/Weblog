@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Menu from "./Menu";
 import styled from "styled-components";
+
 const Content = styled.div`
    {
     width: 90%;
