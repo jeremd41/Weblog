@@ -20,6 +20,7 @@ class Expedition extends Component {
     return (
       <Wrapper>
         <Title>Weblog - Expedition</Title>
+        <Title>Pas disponible dans la version Démo...</Title>
       </Wrapper>
     );
   }

@@ -8,6 +8,11 @@ const Wrapper = styled.div`
     height: 100%;
     position: absolute;
     top: 0;
+
+    p {
+      color: #fff;
+      margin-left: 5px;
+    }
   }
 `;
 
@@ -19,7 +24,11 @@ const Nav = styled.ul`
     display: flex;
     width: 180px;
     flex-direction: column;
-    background: #c8291e;
+    background: #a40808;
+
+    li:hover {
+      background: #b65d56;
+    }
 
     li a {
       color: #fff;
@@ -59,7 +68,7 @@ class Menu extends Component {
         <Title>
           <Link to="/">Web-log</Link>
         </Title>
-        <Search type="search" placeholder="Recherche cde...        🔎" />
+        <Search type="search" placeholder="Recherche cde...       🔎 " />
         <Nav>
           <li>
             <Link to="/">Dashboard</Link>
@@ -89,6 +98,7 @@ class Menu extends Component {
             <Link to="/client">Client</Link>
           </li>
         </Nav>
+        <p>Copyright Webizy</p>
       </Wrapper>
     );
   }

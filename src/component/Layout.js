@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Menu from "./Menu";
 import styled from "styled-components";
-import Footer from "./Footer";
 
 const Content = styled.div`
    {
@@ -16,10 +15,7 @@ class Layout extends Component {
     return (
       <div>
         <Menu />
-        <Content className="content">
-          {children}
-          <Footer />
-        </Content>
+        <Content className="content">{children}</Content>
       </div>
     );
   }

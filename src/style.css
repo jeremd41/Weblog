@@ -1,7 +1,13 @@
+/*--------------------------------------------------------------*/
+/* ------             REGLES CSS PAR DEFAULT              ------*/
+/*--------------------------------------------------------------*/
+
 body {
   margin: 0;
   padding: 0;
   background: #111;
+  height: 100vh;
+  width: 180vh;
 }
 
 a {
@@ -13,12 +19,43 @@ h4 {
   color: #fff;
 }
 
-/* ------TABELEAU COMMANDE APPRO ------*/
+input {
+  border: none;
+  height: 23px;
+  padding: 0px 3px;
+}
+
+select {
+  border: none;
+  height: 23px;
+  padding: 0px 3px;
+}
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.backPages {
+  border: 1px solid #fff;
+  padding: 5px;
+}
+
+button {
+  cursor: pointer;
+}
+
+/*--------------------------------------------------------------*/
+/* ------           REGLES CSS GLOBAL TABELEAUX           ------*/
+/*--------------------------------------------------------------*/
 
 div.redTable {
   border: 2px solid #a40808;
   background-color: #eee7db;
-  width: 85%;
+  width: 90%;
   margin: 25px 50px;
   text-align: center;
   border-collapse: collapse;
@@ -67,7 +104,7 @@ div.redTable {
 .redTable.outerTableFooter .tableFootStyle {
   padding: 3px 5px;
 }
-/* DivTable.com */
+
 .divTable {
   display: table;
 }
@@ -93,4 +130,9 @@ div.redTable {
 
 .divTableBody:hover {
   background: #8f8887;
+}
+
+.cellPreview:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }

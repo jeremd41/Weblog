@@ -1,9 +1,46 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { connect } from "react-redux";
+import FormAddC from "../component/addC";
 
 const Wrapper = styled.div`
    {
     margin-top: 30px;
+
+    .form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      color: #fff;
+      margin: 5px;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .barreTache {
+      height: 50px;
+      background: #aaaaaa;
+      width: 90%;
+      margin: 25px 50px;
+      border: 1px solid #a40808;
+    }
+
+    .btnModal {
+      margin-left: 25px;
+      margin-top: 12px;
+      height: 25px;
+      border: 1px solid #8f8887;
+      width: 120px;
+
+      :hover {
+        background: #8f8887;
+      }
+    }
   }
 `;
 
@@ -16,10 +53,35 @@ const Title = styled.h2`
 `;
 
 class Client extends Component {
+  state = {
+    visible: false
+  };
+
+  handleClick = () => {
+    this.setState({
+      visible: !this.state.visible
+    });
+  };
+
   render() {
+    const afficherModal = this.state.visible;
+    let modal;
+
+    if (afficherModal) {
+      modal = <FormAddC cache={this.handleClick} />;
+    }
+
+    const { client } = this.props;
+    console.log(this.props);
     return (
       <Wrapper>
         <Title>Weblog - Contact Client</Title>
+        <div className="barreTache">
+          <button className="btnModal" onClick={this.handleClick}>
+            Créer client
+          </button>
+        </div>
+        {modal}
         <div class="divTable redTable">
           <div class="divTableHeading">
             <div class="divTableRow">
@@ -33,22 +95,34 @@ class Client extends Component {
               <div class="divTableHead">E-mail</div>
             </div>
           </div>
-          <div class="divTableBody">
-            <div class="divTableRow">
-              <div class="divTableCell">cell1_1</div>
-              <div class="divTableCell">cell2_1</div>
-              <div class="divTableCell">cell3_1</div>
-              <div class="divTableCell">cell4_1</div>
-              <div class="divTableCell">cell5_1</div>
-              <div class="divTableCell">cell6_1</div>
-              <div class="divTableCell">cell6_1</div>
-              <div class="divTableCell">cell6_1</div>
-            </div>
-          </div>
+          {client.map(ligne => {
+            return (
+              <div class="divTableBody" key={ligne.id}>
+                <div class="divTableRow">
+                  <div class="divTableCell cellPreview">
+                    <Link to={"/client/" + ligne.id}>Voir</Link>
+                  </div>
+                  <div class="divTableCell">{ligne.societe}</div>
+                  <div class="divTableCell">{ligne.nom}</div>
+                  <div class="divTableCell">{ligne.prenom}</div>
+                  <div class="divTableCell">{ligne.fonction}</div>
+                  <div class="divTableCell">{ligne.telephone}</div>
+                  <div class="divTableCell">{ligne.mobile}</div>
+                  <div class="divTableCell">{ligne.email}</div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </Wrapper>
     );
   }
 }
 
-export default Client;
+const mapStatetoProps = state => {
+  return {
+    client: state.client
+  };
+};
+
+export default connect(mapStatetoProps)(Client);
